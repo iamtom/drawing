@@ -5,86 +5,74 @@
 
 $(document).ready(function() {
 	var canvas = document.getElementById('canvas');
-	canvas.addEventListener("keydown", doKeyDown, true);
+	canvas.addEventListener('keydown', doKeyDown, true);
 
 	var context = canvas.getContext("2d");
 	
-	var canvasW = canvas.width;
-	var canvasH = canvas.height;
+	//Line style
+	context.lineCap = 'round';
+	context.lineJoin = 'round';
+	context.lineWidth = 5;
+	context.strokeStyle = "black";
 	
-	var brushW = 10;
-	var brushH = 10;
+	//Keeps logs of mouse movements
+	var logOfX = [];
+	var logOfY = [];
 	
-/* 	//Drawing with the mouse================
-	$('#canvas').mousedown(function() {
+	//Fill in the background
+	context.fillStyle = "white";
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	
+	//Drawing with the mouse
+	$('#canvas').mousedown(function(event) {
+		context.beginPath();
+		logOfX.push(event.pageX);
+		logOfY.push(event.pageY);
 		$('#canvas').mousemove(function(event) {
-			
-			//Just so I can see the co-ordinates in the console:
+	
+			/* //Just so I can see the co-ordinates in the console:
 			var msg = "Mouse called at ";
 			msg += event.pageX + ", " + event.pageY;
-			console.log(msg);
-			
-			//Actual stuff:
-			context.fillRect(event.pageX - 10, event.pageY - 83, brushW, brushH);
+			console.log(msg); */
+		
+			//Draw the lines:
+			context.moveTo(logOfX[logOfX.length] -10, logOfY[logOfY.length] - 83);
+			context.lineTo(event.pageX - 10, event.pageY - 83);
+			context.stroke();
+		
 		});
 	});
 	
 	$('body').mouseup(function() {
 		$('#canvas').unbind('mousemove');
-	});
-	//================================= */
-	
-	//Drawing with the mouse version 2================
-	$('#canvas').mousedown(function() {
-		$('#canvas').mousemove(function(event) {
-			
-			//Just so I can see the co-ordinates in the console:
-			var msg = "Mouse called at ";
-			msg += event.pageX + ", " + event.pageY;
-			console.log(msg);
-			
-			//Actual stuff:
-			context.fillRect(event.pageX - 10, event.pageY - 83, brushW, brushH);
-		});
-	});
-	
-	$('body').mouseup(function() {
-		$('#canvas').unbind('mousemove');
-	});
-	//=================================	
+		logOfX = [];
+		logOfY = [];
+	});	
 	
 	
-	//Changing colours============
+	//Changing colours
 	function doKeyDown(e) {	
 		switch(e.keyCode) {
 			case 49: //1 - black
-				context.fillStyle = "black";
+				context.strokeStyle = "black";
 				break;
 			case 50: //2 - red
-				context.fillStyle = "red";
+				context.strokeStyle = "red";
 				break;	
 			case 51: //3 - green
-				context.fillStyle = "green";
+				context.strokeStyle = "green";
 				break;	
 			case 52: //4 - blue
-				context.fillStyle = "blue";
+				context.strokeStyle = "blue";
 				break;	
 			case 53: //5 - white
-				context.fillStyle = "white";
-				break;			
+				context.strokeStyle = "white";
+				break;	
 		}
 	}
-	//==============================
 	
 	//Adjusting the brush size with the slider
 	$('#brushSize').change(function() {
-		brushW = this.value;
-		brushH = this.value;
-		console.log(brushW, brushH);
+		context.lineWidth = this.value;
 	});
-
-	function clearCanvas() {
-		context.fillRect(x, y, box.w, box.h);
-	}
-	
 });
