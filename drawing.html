@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ 
+<html>
+	<head>
+		<title>Draw Stuff</title>
+		<meta charset="utf-8">
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+ 
+	<body>
+		<div id="canvasHolder" >
+			<h1>Draw Stuff</h1>
+			<canvas id="canvas" width="640" height="480" tabindex="0" style="border: 2px solid black"></canvas>
+			<h3>Instructions</h3>
+			<p>Draw with the mouse.</p>
+			<h4>Change colours by pressing the following buttons</h4>
+			<ul>
+				<li>1 : Black</li>
+				<li>2: Red</li>		
+				<li>3: Green</li>	
+				<li>4: Blue</li>					
+				<li>5: White</li>
+			</ul>
+			<h4>Adjust the size of the brush using the slider</h4>
+			<input type="range" min="1" max="50" value="10" step="1" name="brushSize" id="brushSize" />	
+		</div>
+		
+	</body>
+</html>
