@@ -98,6 +98,11 @@ $(document).ready(function() {
 		context.strokeStyle = "white";
 	});
 	
+	//Reset canvas
+	$('#wipe').click(function() {
+		context.fillStyle = 'white';
+		context.fillRect(0, 0, canvas.width, canvas.height);
+	});
 	
 	//Adjusting the brush size with the slider
 	$('#brushSize').change(function() {

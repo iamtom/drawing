@@ -9,7 +9,7 @@
 }
 
 #container {
-	background-color: #777777;
+	background-color: #AAAAAA;
 	width: 1170px;
 	height: 550px;
 	border-radius: 20px;
@@ -17,13 +17,14 @@
 	padding-left: 20px;
 	display: relative;
 	font-family: Helvetica, sans-serif;
-	color: #EEEEEE;
+	color: white;
 }
 
 #canvasContainer {
 	display: inline-block;
 	float: left;
 	width: auto;
+	height: auto;
 
 }
 
@@ -48,21 +49,16 @@
 	width: 40%;
 }
 
-#buttons {
-	height: auto;
-	width: auto;
-}
 
 .colourButton {
-	width: 50px;
-	height: 50px;
+	width:auto;
+	height: auto;
 	margin: 5px;
 	color: white;
 	border-radius: 8px;
 	font-size: 12px;
-	padding: 5px;
+	padding: 10px;
 	cursor: default;
-
 }
 
 #blackBtn {
@@ -84,4 +80,16 @@
 #whiteBtn {
 	background-color: white;
 	color: black;
+}
+
+#wipe {
+	width:55px;
+	height: auto;
+	margin: 5px;
+	color: black;
+	border-radius: 8px;
+	font-size: 12px;
+	padding: 10px;
+	cursor: default;
+	background-color: white;
 }
