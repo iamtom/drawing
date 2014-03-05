@@ -4,6 +4,11 @@
 
 This app is intended as a practice project for myself. 
 
+5th March 2014:
+- Lines now draw from where the mouse pointer actually is.
+- Made a simple UI.
+- Can now click buttons to change colours.
+
 4th March 2014 (20:34):
 - Lines drawn are now smoother. This is because of using paths instead of rectangles.
 

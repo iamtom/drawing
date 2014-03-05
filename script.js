@@ -1,8 +1,3 @@
-//On mousemove update mouse co-ordinates in relation to canvas
-//On mousedown initiate mousemove to get co-ordinates. Remove mouse move on mouse up. Bind the mouse up to <body> in case user lets the mouse up outside of canvas.
-//On mouseup draw brush at mouse co-ordinates but adjust so center of brush appears where mouse is. Can do that by taking half width from mouseX and half height from mouseY
-
-
 $(document).ready(function() {
 	var canvas = document.getElementById('canvas');
 	canvas.addEventListener('keydown', doKeyDown, true);
@@ -12,7 +7,7 @@ $(document).ready(function() {
 	//Line style
 	context.lineCap = 'round';
 	context.lineJoin = 'round';
-	context.lineWidth = 5;
+	context.lineWidth = 10;
 	context.strokeStyle = "black";
 	
 	//Keeps logs of mouse movements
@@ -23,21 +18,36 @@ $(document).ready(function() {
 	context.fillStyle = "white";
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
+	
+	function getMousePosition(canvas, event) {
+		var rect = canvas.getBoundingClientRect();
+		return {
+			x: event.clientX - rect.left,
+			y: event.clientY - rect.top
+		};
+	}
+	
 	//Drawing with the mouse
 	$('#canvas').mousedown(function(event) {
+		pos = getMousePosition(canvas, event);
+		posX = pos.x;
+		posY = pos.y;
+		
 		context.beginPath();
-		logOfX.push(event.pageX);
-		logOfY.push(event.pageY);
+		logOfX.push(posX);
+		logOfY.push(posY);
 		$('#canvas').mousemove(function(event) {
-	
+			pos = getMousePosition(canvas, event);
+			posX = pos.x;
+			posY = pos.y;
 			/* //Just so I can see the co-ordinates in the console:
 			var msg = "Mouse called at ";
 			msg += event.pageX + ", " + event.pageY;
 			console.log(msg); */
 		
 			//Draw the lines:
-			context.moveTo(logOfX[logOfX.length] -10, logOfY[logOfY.length] - 83);
-			context.lineTo(event.pageX - 10, event.pageY - 83);
+			context.moveTo(logOfX[logOfX.length], logOfY[logOfY.length]);
+			context.lineTo(posX, posY);
 			context.stroke();
 		
 		});
@@ -50,7 +60,7 @@ $(document).ready(function() {
 	});	
 	
 	
-	//Changing colours
+	//Change colours with keys
 	function doKeyDown(e) {	
 		switch(e.keyCode) {
 			case 49: //1 - black
@@ -71,8 +81,27 @@ $(document).ready(function() {
 		}
 	}
 	
+	//Change colours with buttons
+	$('#blackBtn').click(function() {
+		context.strokeStyle = "black";
+	});
+	$('#redBtn').click(function() {
+		context.strokeStyle = "red";
+	});
+	$('#greenBtn').click(function() {
+		context.strokeStyle = "green";
+	});
+	$('#blueBtn').click(function() {
+		context.strokeStyle = "blue";
+	});
+	$('#whiteBtn').click(function() {
+		context.strokeStyle = "white";
+	});
+	
+	
 	//Adjusting the brush size with the slider
 	$('#brushSize').change(function() {
 		context.lineWidth = this.value;
+		document.getElementById('brushSizeDisplay').innerHTML = this.value;
 	});
 });

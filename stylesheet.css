@@ -1,0 +1,87 @@
+#colourMenu {
+	list-style-type: none;
+	padding: 0;
+	width: auto;
+}
+
+#colourMenu li {
+	display: inline-block;
+}
+
+#container {
+	background-color: #777777;
+	width: 1170px;
+	height: 550px;
+	border-radius: 20px;
+	padding: 15px;
+	padding-left: 20px;
+	display: relative;
+	font-family: Helvetica, sans-serif;
+	color: #EEEEEE;
+}
+
+#canvasContainer {
+	display: inline-block;
+	float: left;
+	width: auto;
+
+}
+
+#canvasContainer > h1 {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	
+}
+
+#canvas {
+
+}
+
+#brushSize {
+	display: inline;
+}
+
+#menu {
+	display: inline-block;
+	margin-left: 50px;
+	margin-top: 28px;
+	width: 40%;
+}
+
+#buttons {
+	height: auto;
+	width: auto;
+}
+
+.colourButton {
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+	color: white;
+	border-radius: 8px;
+	font-size: 12px;
+	padding: 5px;
+	cursor: default;
+
+}
+
+#blackBtn {
+	background-color: black;
+}
+
+#redBtn{
+	background-color: red;
+}
+
+#greenBtn {
+	background-color: green;
+}
+
+#blueBtn {
+	background-color: blue;
+}
+
+#whiteBtn {
+	background-color: white;
+	color: black;
+}

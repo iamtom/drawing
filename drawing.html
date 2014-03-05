@@ -8,25 +8,30 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 		<script type="text/javascript" src="script.js"></script>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 	</head>
  
 	<body>
-		<div id="canvasHolder" >
-			<h1>Draw Stuff</h1>
-			<canvas id="canvas" width="640" height="480" tabindex="0" style="border: 2px solid black"></canvas>
-			<h3>Instructions</h3>
-			<p>Draw with the mouse.</p>
-			<h4>Adjust the size of the brush using the slider</h4>
-			<input type="range" min="1" max="50" value="10" step="1" name="brushSize" id="brushSize" />	
-			<h4>Use the number keys to change colours</h4>
-			<ul>
-				<li>1: Black</li>
-				<li>2: Red</li>		
-				<li>3: Green</li>	
-				<li>4: Blue</li>					
-				<li>5: White</li>
-			</ul>
-		</div>
 		
+			<div id="container" >
+				<div id="canvasContainer">
+				<h1>Draw Stuff</h1>
+				<canvas id="canvas" width="640" height="480" tabindex="0" style="border: 2px solid #111111">
+				</canvas>
+				</div>
+				
+				<div id="menu">
+					<h4>Adjust the size of the brush using the slider</h4>
+					<input type="range" min="1" max="50" value="10" step="1" name="brushSize" id="brushSize" /><p id="brushSizeDisplay">10</p>
+					<h4>Click to change colours or use the number keys</h4>
+					<ul id="colourMenu">
+						<li><div id="blackBtn" class="colourButton">1: Black</div></li>
+						<li><div id="redBtn" class="colourButton">2: Red</div></li>		
+						<li><div id="greenBtn" class="colourButton">3: Green</div></li>	
+						<li><div id="blueBtn" class="colourButton">4: Blue</div></li>					
+						<li><div id="whiteBtn" class="colourButton">5: Erase</div></li>
+					</ul>
+				</div>
+			</div>
 	</body>
 </html>
