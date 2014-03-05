@@ -7,7 +7,7 @@ $(document).ready(function() {
 	//Line style
 	context.lineCap = 'round';
 	context.lineJoin = 'round';
-	context.lineWidth = 10;
+	context.lineWidth = 5;
 	context.strokeStyle = "black";
 	
 	//Keeps logs of mouse movements
@@ -59,28 +59,39 @@ $(document).ready(function() {
 		logOfY = [];
 	});	
 	
+	$('#canvas').mouseleave(function() {
+		$('#canvas').unbind('mousemove');
+		logOfX = [];
+		logOfY = [];
+	});
+	
 	
 	//Change colours with keys
 	function doKeyDown(e) {	
 		switch(e.keyCode) {
 			case 49: //1 - black
 				context.strokeStyle = "black";
+				context.fillStyle = "black";
 				break;
 			case 50: //2 - red
 				context.strokeStyle = "red";
+				context.fillStyle = "red";
 				break;	
 			case 51: //3 - green
 				context.strokeStyle = "green";
+				context.fillStyle = "green";
 				break;	
 			case 52: //4 - blue
 				context.strokeStyle = "blue";
+				context.fillStyle = "blue";
 				break;	
 			case 53: //5 - white
 				context.strokeStyle = "white";
+				context.fillStyle = "white";
 				break;	
 		}
 	}
-	
+
 	//Change colours with buttons
 	$('#blackBtn').click(function() {
 		context.strokeStyle = "black";

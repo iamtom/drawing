@@ -39,7 +39,16 @@
 }
 
 #brushSize {
-	display: inline;
+	display: inline-block;
+	margin: 10px;
+	margin-bottom: 0;
+}
+
+#brushSizeDisplay {
+	display: inline-block;
+	margin: 10px;
+	margin-top: 0;
+	padding: 0;
 }
 
 #menu {
