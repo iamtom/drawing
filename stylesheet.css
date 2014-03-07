@@ -1,3 +1,9 @@
+body {
+	margin: 0;
+	padding: 2em;
+	background-color: grey;
+}
+
 #colourMenu {
 	list-style-type: none;
 	padding: 0;
@@ -18,6 +24,8 @@
 	display: relative;
 	font-family: Helvetica, sans-serif;
 	color: white;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #canvasContainer {
@@ -68,6 +76,7 @@
 	font-size: 12px;
 	padding: 10px;
 	cursor: default;
+	font-weight: bold;
 }
 
 #blackBtn {
@@ -101,4 +110,5 @@
 	padding: 10px;
 	cursor: default;
 	background-color: white;
+	font-weight: bold;
 }

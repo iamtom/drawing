@@ -18,7 +18,6 @@ $(document).ready(function() {
 	context.fillStyle = "white";
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
-	
 	function getMousePosition(canvas, event) {
 		var rect = canvas.getBoundingClientRect();
 		return {
@@ -64,8 +63,7 @@ $(document).ready(function() {
 		logOfX = [];
 		logOfY = [];
 	});
-	
-	
+		
 	//Change colours with keys
 	function doKeyDown(e) {	
 		switch(e.keyCode) {
