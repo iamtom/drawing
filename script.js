@@ -14,6 +14,9 @@ $(document).ready(function() {
 	var logOfX = [];
 	var logOfY = [];
 	
+	//Custom colour variables
+	var red = 0, green = 0, blue = 0, alpha = 1;
+	
 	//Fill in the background
 	context.fillStyle = "white";
 	context.fillRect(0, 0, canvas.width, canvas.height);
@@ -118,4 +121,33 @@ $(document).ready(function() {
 		context.lineWidth = this.value;
 		document.getElementById('brushSizeDisplay').innerHTML = this.value;
 	});
+	
+	//Custom colour. Can I make this less repetitive?
+	$('#rgbaRed').change(function() {
+		red = this.value;
+		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
+		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+	});	
+	
+	$('#rgbaGreen').change(function() {
+		green = this.value;
+		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
+		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+	});	
+		
+	$('#rgbaBlue').change(function() {
+		blue = this.value;
+		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
+		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+	});	
+	
+	$('#rgbaAlpha').change(function() {
+		alpha = this.value;
+		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
+		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+	});	
 });

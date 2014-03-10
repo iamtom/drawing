@@ -4,6 +4,10 @@ body {
 	background-color: grey;
 }
 
+p {
+	font-size: 12px;
+}
+
 #colourMenu {
 	list-style-type: none;
 	padding: 0;
@@ -111,4 +115,27 @@ body {
 	cursor: default;
 	background-color: white;
 	font-weight: bold;
+}
+
+#rgba {
+	margin-bottom: 20px;
+}
+
+#rgba > p {
+	display: inline;
+
+}
+
+#colourPreviewBack {
+	background-color: white;
+	height: 50px;
+	width: auto;
+	margin-top: 10px;
+}
+
+#colourPreview {
+	width: auto;
+	height: 50px;
+	background-color: none;
+	z-index: 100;
 }
