@@ -2,8 +2,6 @@
 //==Drawing App==//
 //===============//
 
-This app is intended as a practice project for myself. 
-
 10th March 2014:
 - Added RGBA sliders.
 
