@@ -4,6 +4,9 @@
 
 This app is intended as a practice project for myself. 
 
+10th March 2014:
+- Added RGBA sliders.
+
 5th March 2014:
 - Lines now draw from where the mouse pointer actually is.
 - Made a simple UI.
