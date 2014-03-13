@@ -1,7 +1,14 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: Helvetica, sans-serif;
+}
+
 body {
 	margin: 0;
-	padding: 2em;
-	background-color: grey;
+	padding: 0;
+	background-color: #999;
 }
 
 p {
@@ -32,11 +39,11 @@ p {
 	margin-right: auto;
 }
 
+#mainArea {
+	padding: 0;
+}
+
 #canvasContainer {
-	display: inline-block;
-	float: left;
-	width: auto;
-	height: auto;
 
 }
 
@@ -105,7 +112,7 @@ p {
 }
 
 #wipe {
-	width:55px;
+	width: auto;
 	height: auto;
 	margin: 5px;
 	color: black;
@@ -138,4 +145,14 @@ p {
 	height: 50px;
 	background-color: none;
 	z-index: 100;
+}
+
+.red {
+	color: red;
+}
+.green {
+	color: green;
+}
+.blue {
+	color: blue;
 }
