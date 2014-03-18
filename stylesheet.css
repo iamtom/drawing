@@ -19,6 +19,27 @@ p {
 	font-size: 12px;
 }
 
+#mainMenu {
+	z-index: 100;
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 50px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+}
+
+#menuBar {
+	background-color: black;
+	color: white;
+	width: 100%;
+}
+
+#menuBar:hover {
+	background-color: #777777;
+}
+
 #colourMenu {
 	list-style-type: none;
 	padding: 0;
@@ -162,8 +183,9 @@ p {
 }
 
 #colourMixer {
-	border: 1px solid grey;
+	border: 1px solid black;
 	padding: 4px;
+
 }
 
 .red {

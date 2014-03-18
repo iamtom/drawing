@@ -1,10 +1,16 @@
 $(document).ready(function() {
+	//Document elements
+	var customColourPane = document.getElementById('customColourPane');
+	var brushSizeDisplay = document.getElementById('brushSizeDisplay');
 	var canvas = document.getElementById('canvas');
+
 	canvas.addEventListener('keydown', doKeyDown, true);
 
 	var context = canvas.getContext("2d");
 	
+	
 	canvas.width = $(window).width() - 40;
+	canvas.height = $(window).height() - 90;
 
 	//Line style
 	context.lineCap = 'round';
@@ -17,7 +23,8 @@ $(document).ready(function() {
 	var logOfY = [];
 	
 	//Custom colour variables
-	var red = 0, green = 0, blue = 0, alpha = 1;
+	var red = 255, green = 255, blue = 255, alpha = 1;
+
 
 	var customColours = [];
 	
@@ -123,7 +130,7 @@ $(document).ready(function() {
 	//Adjusting the brush size with the slider
 	$('#brushSize').change(function() {
 		context.lineWidth = this.value;
-		document.getElementById('brushSizeDisplay').innerHTML = this.value;
+		brushSizeDisplay.innerHTML = this.value;
 	});
 	
 	//Custom colour. Can I make this less repetitive?
@@ -155,17 +162,36 @@ $(document).ready(function() {
 		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
 	});	
 
-	
+	//Save custom colours
 	$('#saveColour').click(function() {
-		var c = (Math.random() * 10);
-		var customColourPane = document.getElementById('customColourPane');
-		customColours.push('rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
+		var c = Math.round((Math.random() * 1000000));
+		customColours.push([c, 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')']);
+
 		//generate a preview div in the right hand pane
 		customColourPane.innerHTML += '<div class="customColour" id="' + c + '"></div>';
 		document.getElementById(c).style.backgroundColor = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		console.log(customColours);
 	});
 
-	$('.customColour').click(function() {
-		//get background colour of div and set the stroke style to it
+	//Use custom colour by clicking it
+	$('#customColourPane').on('click', '.customColour', function(e) {
+		var a = e.target.id;
+		console.log(a);
+		for (var i = 0; i < customColours.length; i++) {
+			if (customColours[i][0] == a) {
+				context.strokeStyle = customColours[i][1];
+				context.fillStyle = customColours[i][1];
+			}
+		}
+	});
+
+	//Open menu
+	$('#menuBar').click(function() {
+		if ($('#mainMenu').css('visibility') == 'hidden') {
+			$('#mainMenu').css('visibility', 'visible');
+		} else if ($('#mainMenu').css('visibility') !== 'hidden') {
+			$('#mainMenu').css('visibility', 'hidden');
+		}
+
 	});
 });

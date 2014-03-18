@@ -13,16 +13,12 @@
 	</head>
  
 	<body>
-		<div id="mainArea" class="col--1-1">
-
-				<canvas id="canvas" height="480" tabindex="0" style="border: 2px solid grey">
-					<p>This app requires JavaScript. Please enable JavaScript.</p>
-				</canvas>
-		
-		</div>
-
+	<div id="menuBar" class="col--1-1">Menu</div>
+	<div id="mainMenu">
 		<div class="col--1-2">
-			<p>Brush Size:</p><input type="range" min="1" max="50" value="5" step="1" name="brushSize" id="brushSize" /><p id="brushSizeDisplay">5</p>
+			<h4 class="noMargin">Brush Size</h4>
+			<input type="range" min="1" max="50" value="5" step="1" name="brushSize" id="brushSize" /><p id="brushSizeDisplay">5</p>
+			<h4 class="noMargin">Colour Selection</h4>
 				<ul id="colourMenu">
 						<li><div id="blackBtn" class="colourButton">1: Black</div></li>
 						<li><div id="redBtn" class="colourButton">2: Red</div></li>		
@@ -31,14 +27,14 @@
 						<li><div id="whiteBtn" class="colourButton">5: Erase</div></li>
 						<li><div id="wipe">Erase All</div></li>
 				</ul>
-
+			<h4 class="noMargin">Mix Your Own</h4>
 			<div id="colourMixer">
 				<p class="red">Red</p>
-				<input type="range" min="0" max="255" value="0" step="1" name="rgbaRed" id="rgbaRed"/>
+				<input type="range" min="0" max="255" value="255" step="1" name="rgbaRed" id="rgbaRed"/>
 				<p class="green">Green</p>
-				<input type="range" min="0" max="255" value="0" step="1" name="rgbaGreen" id="rgbaGreen"/><br>
+				<input type="range" min="0" max="255" value="255" step="1" name="rgbaGreen" id="rgbaGreen"/><br>
 				<p class="blue">Blue</p>
-				<input type="range" min="0" max="255" value="0" step="1" name="rgbaBlue" id="rgbaBlue"/>
+				<input type="range" min="0" max="255" value="255" step="1" name="rgbaBlue" id="rgbaBlue"/>
 				<p>Alpha</p>
 				<input type="range" min="0" max="1" value="1" step="0.1" name="rgbaAlpha" id="rgbaAlpha"/>
 				<div id="colourPreviewBack">
@@ -50,20 +46,22 @@
 				<div id="saveColour" class="colourButton">Save Custom Colour</div>
 			</div>
 		</div>
-
-
-
-			
-
-
-
 		<!--Custom colours appear here-->		
 		<div class="col--1-2">
-			<h4 class="noMargin">Custom Colours</h4>
+			
 			<div id="customColourPane">
-
+				<h4 class="noMargin">Custom Colours</h4>
 			</div>
 		</div>			
+	</div>
+	<div id="mainArea" class="col--1-1">
 
+		<canvas id="canvas" height="480" tabindex="0" style="border: 2px solid grey">
+			<p>This app requires JavaScript. Please enable JavaScript.</p>
+		</canvas>
+	
+	</div>
+
+	
 	</body>
 </html>
