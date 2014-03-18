@@ -65,6 +65,18 @@ $(document).ready(function() {
 		
 		});
 	});
+
+	//For making dots with a single-click
+	$('#canvas').click(function(event) {
+		pos = getMousePosition(canvas, event);
+		posX = pos.x;
+		posY = pos.y;
+
+		context.beginPath();
+		context.moveTo(posX, posY);
+		context.lineTo(posX, posY);
+		context.stroke();
+	});
 	
 	$('body').mouseup(function() {
 		$('#canvas').unbind('mousemove');
@@ -187,11 +199,11 @@ $(document).ready(function() {
 
 	//Open menu
 	$('#menuBar').click(function() {
-		if ($('#mainMenu').css('visibility') == 'hidden') {
+		if ($('#mainMenu').css('visibility') == 'hidden') {			
 			$('#mainMenu').css('visibility', 'visible');
 		} else if ($('#mainMenu').css('visibility') !== 'hidden') {
 			$('#mainMenu').css('visibility', 'hidden');
 		}
-
 	});
+
 });
