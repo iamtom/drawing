@@ -13,7 +13,15 @@
 	</head>
  
 	<body>
-		<div class="col--1-5">
+		<div id="mainArea" class="col--1-1">
+
+				<canvas id="canvas" height="480" tabindex="0" style="border: 2px solid grey">
+					<p>This app requires JavaScript. Please enable JavaScript.</p>
+				</canvas>
+		
+		</div>
+
+		<div class="col--1-2">
 			<p>Brush Size:</p><input type="range" min="1" max="50" value="5" step="1" name="brushSize" id="brushSize" /><p id="brushSizeDisplay">5</p>
 				<ul id="colourMenu">
 						<li><div id="blackBtn" class="colourButton">1: Black</div></li>
@@ -41,22 +49,16 @@
 				</div>
 				<div id="saveColour" class="colourButton">Save Custom Colour</div>
 			</div>
-
-
-
 		</div>
-		<div id="mainArea" class="col--3-5">
-			<div class="col--1-1">
-				<canvas id="canvas" width="1110" height="480" tabindex="0" style="border: 2px solid grey">
-					<p>This app requires JavaScript. Please enable JavaScript.</p>
-				</canvas>
-			</div>
+
+
+
 			
-			
-		</div>	
+
+
 
 		<!--Custom colours appear here-->		
-		<div class="col--1-5">
+		<div class="col--1-2">
 			<h4 class="noMargin">Custom Colours</h4>
 			<div id="customColourPane">
 

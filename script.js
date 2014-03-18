@@ -4,6 +4,8 @@ $(document).ready(function() {
 
 	var context = canvas.getContext("2d");
 	
+	canvas.width = $(window).width() - 40;
+
 	//Line style
 	context.lineCap = 'round';
 	context.lineJoin = 'round';
