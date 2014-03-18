@@ -16,6 +16,8 @@ $(document).ready(function() {
 	
 	//Custom colour variables
 	var red = 0, green = 0, blue = 0, alpha = 1;
+
+	var customColours = [];
 	
 	//Fill in the background
 	context.fillStyle = "white";
@@ -150,4 +152,18 @@ $(document).ready(function() {
 		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
 		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
 	});	
+
+	
+	$('#saveColour').click(function() {
+		var c = (Math.random() * 10);
+		var customColourPane = document.getElementById('customColourPane');
+		customColours.push('rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
+		//generate a preview div in the right hand pane
+		customColourPane.innerHTML += '<div class="customColour" id="' + c + '"></div>';
+		document.getElementById(c).style.backgroundColor = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+	});
+
+	$('.customColour').click(function() {
+		//get background colour of div and set the stroke style to it
+	});
 });

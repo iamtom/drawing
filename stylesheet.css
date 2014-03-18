@@ -5,6 +5,10 @@
 	font-family: Helvetica, sans-serif;
 }
 
+.noMargin {
+	margin: 0;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -138,6 +142,7 @@ p {
 	height: 50px;
 	width: auto;
 	margin-top: 10px;
+
 }
 
 #colourPreview {
@@ -145,6 +150,20 @@ p {
 	height: 50px;
 	background-color: none;
 	z-index: 100;
+
+}
+
+.customColour {
+	height: 50px;
+	width: 12.5%;
+	display: inline-block;
+	margin-right: 5px;
+	/*background-color: white;*/
+}
+
+#colourMixer {
+	border: 1px solid grey;
+	padding: 4px;
 }
 
 .red {
@@ -155,4 +174,10 @@ p {
 }
 .blue {
 	color: blue;
+}
+
+#saveColour {
+	background-color: black;
+	color: white;
+
 }
