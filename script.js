@@ -118,19 +118,39 @@ $(document).ready(function() {
 
 	//Change colours with buttons
 	$('#blackBtn').click(function() {
-		context.strokeStyle = "black";
+		red = 0;
+		green = 0;
+		blue = 0;
+		alpha = 1;
+		updateColour();
 	});
 	$('#redBtn').click(function() {
-		context.strokeStyle = "red";
+		red = 255;
+		green = 0;
+		blue = 0;
+		alpha = 1;
+		updateColour();
 	});
 	$('#greenBtn').click(function() {
-		context.strokeStyle = "green";
+		red = 0;
+		green = 255;
+		blue = 0;
+		alpha = 1;
+		updateColour();
 	});
 	$('#blueBtn').click(function() {
-		context.strokeStyle = "blue";
+		red = 0;
+		green = 0;
+		blue = 255;
+		alpha = 1;
+		updateColour();
 	});
 	$('#whiteBtn').click(function() {
-		context.strokeStyle = "white";
+		red = 255;
+		green = 255;
+		blue = 255;
+		alpha = 1;
+		updateColour();
 	});
 	
 	//Reset canvas
@@ -145,39 +165,41 @@ $(document).ready(function() {
 		brushSizeDisplay.innerHTML = this.value;
 	});
 	
-	//Custom colour. Can I make this less repetitive?
-	$('#rgbaRed').change(function() {
-		red = this.value;
+	function updateColour() {
 		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
 		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
 		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		document.getElementById('rgbaRed').value = red;
+		document.getElementById('rgbaGreen').value = green;
+		document.getElementById('rgbaBlue').value = blue;
+		document.getElementById('rgbaAlpha').value = alpha;
+	}
+
+	//Custom colours
+	$('#rgbaRed').change(function() {
+		red = this.value;
+		updateColour();
 	});	
 	
 	$('#rgbaGreen').change(function() {
 		green = this.value;
-		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
-		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
-		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		updateColour();
 	});	
 		
 	$('#rgbaBlue').change(function() {
 		blue = this.value;
-		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
-		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
-		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		updateColour();
 	});	
 	
 	$('#rgbaAlpha').change(function() {
 		alpha = this.value;
-		$('#colourPreview').css('background-color', 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
-		context.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
-		context.strokeStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
+		updateColour();
 	});	
 
 	//Save custom colours
 	$('#saveColour').click(function() {
 		var c = Math.round((Math.random() * 1000000));
-		customColours.push([c, 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')']);
+		customColours.push([c, red, green, blue, alpha]);
 
 		//generate a preview div in the right hand pane
 		customColourPane.innerHTML += '<div class="customColour" id="' + c + '"></div>';
@@ -191,8 +213,11 @@ $(document).ready(function() {
 		console.log(a);
 		for (var i = 0; i < customColours.length; i++) {
 			if (customColours[i][0] == a) {
-				context.strokeStyle = customColours[i][1];
-				context.fillStyle = customColours[i][1];
+				red = customColours[i][1];
+				green = customColours[i][2];
+				blue = customColours[i][3];
+				alpha = customColours[i][4];
+				updateColour();
 			}
 		}
 	});
