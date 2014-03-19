@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	//Document elements
+	//Elements
 	var customColourPane = document.getElementById('customColourPane');
 	var brushSizeDisplay = document.getElementById('brushSizeDisplay');
 	var canvas = document.getElementById('canvas');
@@ -94,24 +94,39 @@ $(document).ready(function() {
 	function doKeyDown(e) {	
 		switch(e.keyCode) {
 			case 49: //1 - black
-				context.strokeStyle = "black";
-				context.fillStyle = "black";
+				red = 0;
+				green = 0;
+				blue = 0;
+				alpha = 1;
+				updateColour();
 				break;
 			case 50: //2 - red
-				context.strokeStyle = "red";
-				context.fillStyle = "red";
+				red = 255;
+				green = 0;
+				blue = 0;
+				alpha = 1;
+				updateColour();
 				break;	
 			case 51: //3 - green
-				context.strokeStyle = "green";
-				context.fillStyle = "green";
+				red = 0;
+				green = 255;
+				blue = 0;
+				alpha = 1;
+				updateColour();
 				break;	
 			case 52: //4 - blue
-				context.strokeStyle = "blue";
-				context.fillStyle = "blue";
+				red = 0;
+				green = 0;
+				blue = 255;
+				alpha = 1;
+				updateColour();
 				break;	
-			case 53: //5 - white
-				context.strokeStyle = "white";
-				context.fillStyle = "white";
+			case 53: //5 - white/erase
+				red = 255;
+				green = 255;
+				blue = 255;
+				alpha = 1;
+				updateColour();
 				break;	
 		}
 	}
@@ -153,7 +168,7 @@ $(document).ready(function() {
 		updateColour();
 	});
 	
-	//Reset canvas
+	//Wipe canvas clean
 	$('#wipe').click(function() {
 		context.fillStyle = 'white';
 		context.fillRect(0, 0, canvas.width, canvas.height);
@@ -204,7 +219,6 @@ $(document).ready(function() {
 		//generate a preview div in the right hand pane
 		customColourPane.innerHTML += '<div class="customColour" id="' + c + '"></div>';
 		document.getElementById(c).style.backgroundColor = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')';
-		console.log(customColours);
 	});
 
 	//Use custom colour by clicking it
@@ -222,7 +236,7 @@ $(document).ready(function() {
 		}
 	});
 
-	//Open menu
+	//Open and close menu
 	$('#menuBar').click(function() {
 		if ($('#mainMenu').css('visibility') == 'hidden') {			
 			$('#mainMenu').css('visibility', 'visible');
