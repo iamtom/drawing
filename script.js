@@ -11,6 +11,8 @@ $(document).ready(function() {
 	
 	canvas.width = $(window).width() - 40;
 	canvas.height = $(window).height() - 90;
+	var paneHeight = $(window).height()/2;
+	$('#customColourPane').css('height', paneHeight);
 
 	//Line style
 	context.lineCap = 'round';
@@ -31,6 +33,9 @@ $(document).ready(function() {
 	//Fill in the background
 	context.fillStyle = "white";
 	context.fillRect(0, 0, canvas.width, canvas.height);
+
+	//Regarding 'undo' and 'redo' functionality
+	
 	
 	function getMousePosition(canvas, event) {
 		var rect = canvas.getBoundingClientRect();
@@ -65,6 +70,7 @@ $(document).ready(function() {
 		
 		});
 	});
+
 
 	//For making dots with a single-click
 	$('#canvas').click(function(event) {
@@ -236,13 +242,25 @@ $(document).ready(function() {
 		}
 	});
 
-	//Open and close menu
-	$('#menuBar').click(function() {
+	function menuOpenClose() {
 		if ($('#mainMenu').css('visibility') == 'hidden') {			
 			$('#mainMenu').css('visibility', 'visible');
+			$('#menuBar').html('Close Menu');
 		} else if ($('#mainMenu').css('visibility') !== 'hidden') {
 			$('#mainMenu').css('visibility', 'hidden');
+			$('#menuBar').html('Open Menu');
 		}
+	}
+
+	//Open and close menu
+	$('#menuBar').click(function() {
+		menuOpenClose();
+	});
+
+	$('#mainMenu').click(function() {
+		menuOpenClose();
+	}).children().click(function(e) {
+		return false;
 	});
 
 });

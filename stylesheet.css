@@ -192,6 +192,11 @@ p {
 
 }
 
+#customColourPane {
+	height: 50em;
+	overflow: auto;
+}
+
 .red {
 	color: red;
 }
